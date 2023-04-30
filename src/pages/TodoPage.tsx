@@ -29,7 +29,6 @@ export default function TodoPage() {
         </Grid>
       </Grid>
       <TodoList />
-      <ErrorDuplicated />
     </Container>
   )
 }

@@ -5,17 +5,18 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { websocketInit } from './app/websocket';
+import Websocket from './app/websocket';
 
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
-websocketInit();
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Websocket>
+        <App />
+      </Websocket>
     </Provider>
   </React.StrictMode>
 );

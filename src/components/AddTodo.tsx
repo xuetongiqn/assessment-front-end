@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { TextField, Button } from '@mui/material';
 import { addTodo } from '../app/websocket';
+import ErrorDuplicated from './ErrorDuplicated';
 
 
 const AddTodo = function () {
@@ -21,6 +22,7 @@ const AddTodo = function () {
       <Button variant="contained" onClick={() => {
         addTodoCallback();
       }}>Add</Button>
+      <ErrorDuplicated />
     </>
   )
 }
