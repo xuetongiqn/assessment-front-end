@@ -3,7 +3,9 @@ import { TextField, Button } from '@mui/material';
 import { addTodo } from '../app/websocket';
 import ErrorDuplicated from './ErrorDuplicated';
 
-
+// AddTodoElement brings a search input and add button. Click add button or type 'Enter' in
+// the input box will triggle the action. 
+// The ErrorDuplicated element will show some feedback infomation of the add action.
 const AddTodoElement = function () {
   const [todoInput, setTodoInput] = useState<string>('');
 

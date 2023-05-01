@@ -22,6 +22,7 @@ export interface TodoState {
   error: ErrorMsg | null;
 }
 
+// The initial state of the page. 
 const initialState: TodoState = {
   todoList: null,
   completedList: null,
@@ -31,6 +32,7 @@ const initialState: TodoState = {
   error: null,
 };
 
+// define the reducers here.
 export const todoListSlice = createSlice({
   name: 'todo',
   initialState,
@@ -57,8 +59,10 @@ export const todoListSlice = createSlice({
   },
 });
 
+// export actions
 export const { updateTodoList, updateCompletedList, updateSearchQuery, updateErrorMsg } = todoListSlice.actions;
 
+// export the state getter
 export const selectTodoList = (state: RootState) => state.todo.todoList;
 export const selectCompletedList = (state: RootState) => state.todo.completedList;
 export const selectTodoSearchList = (state: RootState) => state.todo.todoSearchList;

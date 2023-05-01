@@ -8,6 +8,7 @@ export type ListViewProps = {
   highlight: string;
 }
 
+// Replace the keywords to 'span' wrapped element from string.
 export function highlightText(text: string, highlight: string): (JSX.Element | string)[] {
   let result: (JSX.Element | string)[] = [];
   text.split(highlight).forEach((str: string, i: number) => {
@@ -17,7 +18,9 @@ export function highlightText(text: string, highlight: string): (JSX.Element | s
 
   return result;
 }
-
+// The ListView element shows the todo or done list. When user click the checkbox,
+// it will call the socket function to send message to server.
+// 2 special types, uninital: progress animation, empty array: empty message, 
 export default function ListView({ list, highlight = '' }: ListViewProps) {
   if (!list) {
     return <CircularProgress />

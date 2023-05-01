@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText } from '@mui/material';
 import { removeAll } from '../app/websocket';
 
+// The DeleteAll element click will popup a dialog to ensure the action.
 const DeleteAll = function () {
   const [removeModal, setRemoveModal] = useState<boolean>(false);
 

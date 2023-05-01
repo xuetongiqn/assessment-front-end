@@ -3,7 +3,9 @@ import { useAppSelector } from '../app/hooks';
 import { selectTodoList, selectCompletedList, selectTodoSearchList, selectCompletedSearchList, selectSearchQuery } from '../reducer/todoReducer';
 import ListView from '../components/ListView';
 
-
+// It is the bottom part of the page. Normally it shows the TODO list 
+// and the DONE list. In 'search mode', which means the search box is not empty,
+// this element shows the search results.
 const TodoList = function () {
   const todoList = useAppSelector(selectTodoList);
   const completedList = useAppSelector(selectCompletedList);

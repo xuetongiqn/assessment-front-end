@@ -1,10 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Snackbar, Alert, Button, AlertColor } from '@mui/material';
 import { useAppSelector, useAppDispatch } from '../app/hooks';
 import { selectErrorMsg, updateErrorMsg } from '../reducer/todoReducer';
 import { completeTodo } from '../app/websocket';
 
-
+// ErrorDuplicated element will check the errorMsg in redux. If the errorMsg is not null
+// which means user add a duplicated task, it will give a alert messae to user.
+// Feature1: If the exist task is in "Done" list, give user a button to move it to "To Do" list.
+// if the exist task is already in "To Do" list, gibe user a message and do nothing.
 const ErrorDuplicated = function () {
   const errorMsg = useAppSelector(selectErrorMsg);
   const dispatch = useAppDispatch();
@@ -17,7 +20,7 @@ const ErrorDuplicated = function () {
     return <></>;
   }
 
-  let snackbarMsg: string;
+  let snackbarMsg: string; 
   let snackbarAction: JSX.Element | undefined;
   let snackbarSeverity: AlertColor;
   if (errorMsg.data.isCompleted) {
@@ -25,7 +28,7 @@ const ErrorDuplicated = function () {
     snackbarAction = <Button size="small" onClick={() => {
       completeTodo(errorMsg.data.id, false);
       clearError();
-    }}>re add</Button>;
+    }}>readd</Button>;
     snackbarSeverity = "warning";
   } else {
     snackbarMsg = `The task you add '${errorMsg.data.text}' is already in the list.`;
