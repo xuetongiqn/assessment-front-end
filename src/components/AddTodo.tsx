@@ -4,7 +4,7 @@ import { addTodo } from '../app/websocket';
 import ErrorDuplicated from './ErrorDuplicated';
 
 
-const AddTodo = function () {
+const AddTodoElement = function () {
   const [todoInput, setTodoInput] = useState<string>('');
 
   const addTodoCallback = useCallback(() => {
@@ -27,4 +27,4 @@ const AddTodo = function () {
   )
 }
 
-export default AddTodo;
+export default AddTodoElement;

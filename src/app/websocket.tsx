@@ -30,13 +30,13 @@ export default function WebsocketElement({ children }: { children: JSX.Element }
     });
 
     socket.on('message', (message: string, { resultCode, data, errcode, errmsg }: SocketResponse) => {
-      console.log(message, resultCode, errmsg, data);
+      // console.log(message, resultCode, errmsg, data);
       if (resultCode == 1) {
         switch (message) {
           case 'todoList': {
             store.dispatch({ type: 'todo/updateTodoList', payload: data.list });
 
-            //if the list is updated(by other user), the search list should be updated
+            //if the list is updated(by other user), the search list should be updated(redo search)
             const { todo } = store.getState();
             if (todo.searchQuery) {
               search(todo.searchQuery);
